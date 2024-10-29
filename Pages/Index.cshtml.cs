@@ -6,14 +6,16 @@ namespace az_app_tim.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration)
     {
-        _logger = logger;
+        this._configuration = configuration;
+        this._logger = logger;
     }
 
     public void OnGet()
     {
-
+        ViewData["Greeting"] = _configuration["Greeting"];
     }
 }
