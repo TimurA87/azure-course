@@ -1,12 +1,12 @@
 @page
-@model az_app_tim.Pages.PersonsModel
+@model az_app_tim.Pages.Persons.EditModel
 
 @{
-    ViewData["Title"] = "Persons";
+    ViewData["Title"] = "Edit";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Persons</h1>
+<h1>Edit</h1>
 
 <h4>Person</h4>
 <hr />
@@ -14,6 +14,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Person.Id" />
             <div class="form-group">
                 <label asp-for="Person.FirstName" class="control-label"></label>
                 <input asp-for="Person.FirstName" class="form-control" />
@@ -30,14 +31,14 @@
                 <span asp-validation-for="Person.DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
